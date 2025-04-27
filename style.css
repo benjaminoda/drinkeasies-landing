@@ -1,3 +1,11 @@
+/* style.css */
+
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;600&display=swap');
+
+/* Reset & base */
 * {
   margin: 0;
   padding: 0;
@@ -7,11 +15,10 @@ html, body {
   height: 100%;
 }
 body {
-  font-family: 'Recoleta', serif;
+  font-family: 'Yeseva One', serif;
   color: #1A0F5A;
   position: relative;
   overflow: hidden;
-  /* Background image */
   background: url('https://lh3.googleusercontent.com/d/1Sx4YjCZ4ZzMeqWkMfKoCIJS0rwU_PYmz') center center no-repeat;
   background-size: cover;
 }
@@ -40,7 +47,7 @@ body {
 
 /* Tagline/phrase */
 h2 {
-  font-family: 'Cooper BT', 'Recoleta', serif;
+  font-family: 'Fraunces', serif;
   font-size: 1.75rem;
   margin-bottom: 1.5rem;
   color: #1A0F5A;
@@ -58,13 +65,17 @@ h2 {
   font-size: 1.2rem;
 }
 
-/* Mailchimp form */
-#mc-form {
+/* Mailchimp form overrides */
+#mc_embed_shell {
+  max-width: 320px;
+  margin: 0 auto;
+}
+#mc_embed_signup form {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
 }
-.email {
+.mc-field-group input.email {
   padding: 0.75rem;
   font-size: 1rem;
   border: 2px solid #1A0F5A;
@@ -77,9 +88,34 @@ h2 {
   border: none;
   border-radius: 0.5rem;
   cursor: pointer;
-  font-family: 'Cooper BT', 'Recoleta', serif;
+  font-family: 'Fraunces', serif;
   background-color: #1A0F5A;
   color: #fff;
+}
+.visually-hidden {
+  position: absolute;
+  clip: rect(1px,1px,1px,1px);
+  margin: -1px;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+}
+.clear-foot {
+  margin-top: 0.5rem;
+}
+.response {
+  font-size: 0.875rem;
+  color: #e74c3c;
+  font-family: 'Yeseva One', serif;
+}
+.honeypot {
+  display: none;
+}
+.mc-logo img {
+  width: 120px;
+  height: auto;
+  margin-top: 0.5rem;
+  opacity: 0.6;
 }
 
 /* Footnote */
@@ -88,5 +124,5 @@ h2 {
   color: #1A0F5A;
   opacity: 0.8;
   margin-top: 1rem;
-  font-family: 'Recoleta', serif;
+  font-family: 'Yeseva One', serif;
 }
