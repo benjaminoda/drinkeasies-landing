@@ -1,0 +1,92 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html, body {
+  height: 100%;
+}
+body {
+  font-family: 'Recoleta', serif;
+  color: #1A0F5A;
+  position: relative;
+  overflow: hidden;
+  /* Background image */
+  background: url('https://lh3.googleusercontent.com/d/1Sx4YjCZ4ZzMeqWkMfKoCIJS0rwU_PYmz') center center no-repeat;
+  background-size: cover;
+}
+
+/* Overlay container */
+.overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  padding: 1rem;
+  backdrop-filter: blur(6px);
+  background-color: rgba(255,255,255,0.4);
+  border-radius: 1rem;
+  max-width: 90%;
+}
+
+/* Logo image */
+.logo {
+  display: block;
+  margin: 0 auto 1rem;
+  width: 280px;
+  height: auto;
+}
+
+/* Tagline/phrase */
+h2 {
+  font-family: 'Cooper BT', 'Recoleta', serif;
+  font-size: 1.75rem;
+  margin-bottom: 1.5rem;
+  color: #1A0F5A;
+}
+
+/* USP list styling */
+.usps {
+  list-style: none;
+  margin-bottom: 2rem;
+  display: grid;
+  gap: 0.75rem;
+}
+.usps li {
+  font-family: 'League Spartan', sans-serif;
+  font-size: 1.2rem;
+}
+
+/* Mailchimp form */
+#mc-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.email {
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: 2px solid #1A0F5A;
+  border-radius: 0.5rem;
+  font-family: 'League Spartan', sans-serif;
+}
+.button {
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-family: 'Cooper BT', 'Recoleta', serif;
+  background-color: #1A0F5A;
+  color: #fff;
+}
+
+/* Footnote */
+.footnote {
+  font-size: 0.875rem;
+  color: #1A0F5A;
+  opacity: 0.8;
+  margin-top: 1rem;
+  font-family: 'Recoleta', serif;
+}
