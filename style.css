@@ -6,14 +6,8 @@
 @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;600&display=swap');
 
 /* Reset & base */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-html, body {
-  height: 100%;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { height: 100%; }
 body {
   font-family: 'Yeseva One', serif;
   color: #1A0F5A;
@@ -111,11 +105,10 @@ h2 {
 .honeypot {
   display: none;
 }
-.mc-logo img {
-  width: 120px;
-  height: auto;
-  margin-top: 0.5rem;
-  opacity: 0.6;
+
+/* Hide Mailchimp footer logo */
+.mc-logo {
+  display: none !important;
 }
 
 /* Footnote */
