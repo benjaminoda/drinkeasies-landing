@@ -1,121 +1,91 @@
-/* style.css */
+/*────────────────────────────────────────────────────────────
+  style.css (with Validation Hover State)
+────────────────────────────────────────────────────────────*/
 
-/* Import Google Fonts */
+/* 1) IMPORT FONTS */
 @import url('https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;600&display=swap');
 
-/* Reset & base */
-* { margin: 0; padding: 0; box-sizing: border-box; }
-html, body { height: 100%; }
+/* 2) RESET & BASE */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { width: 100%; height: 100%; }
 body {
   font-family: 'Yeseva One', serif;
   color: #1A0F5A;
+  background: url('https://lh3.googleusercontent.com/d/1Sx4YjCZ4ZzMeqWkMfKoCIJS0rwU_PYmz') center/cover no-repeat;
   position: relative;
   overflow: hidden;
-  background: url('https://lh3.googleusercontent.com/d/1Sx4YjCZ4ZzMeqWkMfKoCIJS0rwU_PYmz') center center no-repeat;
-  background-size: cover;
 }
 
-/* Overlay container */
+/* 3) OVERLAY CONTAINER */
 .overlay {
   position: absolute;
-  top: 50%;
-  left: 50%;
+  top: 50%; left: 50%;
   transform: translate(-50%, -50%);
-  text-align: center;
+  width: 90%; max-width: 600px;
   padding: 1rem;
+  text-align: center;
   backdrop-filter: blur(6px);
   background-color: rgba(255,255,255,0.4);
   border-radius: 1rem;
-  max-width: 90%;
 }
 
-/* Logo image */
-.logo {
-  display: block;
-  margin: 0 auto 1rem;
-  width: 280px;
-  height: auto;
-}
-
-/* Tagline/phrase */
-h2 {
-  font-family: 'Fraunces', serif;
-  font-size: 1.75rem;
-  margin-bottom: 1.5rem;
-  color: #1A0F5A;
-}
-
-/* USP list styling */
-.usps {
-  list-style: none;
-  margin-bottom: 2rem;
-  display: grid;
-  gap: 0.75rem;
-}
-.usps li {
-  font-family: 'League Spartan', sans-serif;
-  font-size: 1.2rem;
-}
-
-/* Mailchimp form overrides */
-#mc_embed_shell {
-  max-width: 320px;
-  margin: 0 auto;
-}
-#mc_embed_signup form {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-}
-.mc-field-group input.email {
-  padding: 0.75rem;
-  font-size: 1rem;
-  border: 2px solid #1A0F5A;
-  border-radius: 0.5rem;
-  font-family: 'League Spartan', sans-serif;
+/* 4) COMMON ELEMENTS */
+.logo { display: block; margin: 0 auto 1rem; width: 280px; height: auto; }
+.visually-hidden {
+  position: absolute!important;
+  clip: rect(1px,1px,1px,1px);
+  width:1px; height:1px;
+  margin:-1px; overflow:hidden;
+  border:0;
 }
 .button {
-  padding: 0.75rem;
+  display: inline-block;
+  font-family: 'Fraunces', serif;
   font-size: 1rem;
+  padding: 0.75rem 1.5rem;
+  color: #fff;
+  background: #1A0F5A;
   border: none;
   border-radius: 0.5rem;
   cursor: pointer;
-  font-family: 'Fraunces', serif;
-  background-color: #1A0F5A;
-  color: #fff;
-}
-.visually-hidden {
-  position: absolute;
-  clip: rect(1px,1px,1px,1px);
-  margin: -1px;
-  height: 1px;
-  width: 1px;
-  overflow: hidden;
-}
-.clear-foot {
-  margin-top: 0.5rem;
-}
-.response {
-  font-size: 0.875rem;
-  color: #e74c3c;
-  font-family: 'Yeseva One', serif;
-}
-.honeypot {
-  display: none;
+  text-decoration: none;
+  text-align: center;
 }
 
-/* Hide Mailchimp footer logo */
-.mc-logo {
-  display: none !important;
+/* Disabled state */
+.button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
-/* Footnote */
-.footnote {
-  font-size: 0.875rem;
-  color: #1A0F5A;
-  opacity: 0.8;
-  margin-top: 1rem;
-  font-family: 'Yeseva One', serif;
+/* Hover underline when enabled */
+.button:not(:disabled):hover {
+  text-decoration: underline;
 }
+
+.response { margin-top: 0.5rem; font-size: 0.875rem; color: #e74c3c; font-family: 'Yeseva One', serif; }
+.honeypot, .mc-logo { display: none!important; }
+
+/* 5) LANDING PAGE */
+.overlay:not(.thank-you) h2 { font-family: 'Fraunces', serif; font-size: 1.75rem; margin-bottom: 1.5rem; }
+.overlay:not(.thank-you) .usps { list-style: none; display: grid; gap: 0.75rem; margin-bottom: 2rem; }
+.overlay:not(.thank-you) .usps li { font-family: 'League Spartan', sans-serif; font-size: 1.2rem; }
+#mc_embed_shell { max-width: 320px; margin: 0 auto; }
+#mc_embed_signup form { display: flex; flex-direction: column; gap: 0.25rem; }
+#mc_embed_signup_scroll { display: flex; flex-direction: column; gap: 0.25rem; }
+.overlay:not(.thank-you) input.email { padding: 0.75rem; font-size: 1rem; border: 2px solid #1A0F5A; border-radius: 0.5rem; font-family: 'League Spartan', sans-serif; text-align: center; }
+.overlay:not(.thank-you) .button { width: auto; max-width: 240px; margin: 0.5rem auto 0; }
+.footnote { margin-top: 1rem; font-size: 0.875rem; opacity: 0.8; }
+
+/* 6) THANK-YOU PAGE */
+.overlay.thank-you { display: flex; flex-direction: column; align-items: center; gap: 1rem; padding: 1rem; max-height: 100vh; overflow-y: auto; }
+.overlay.thank-you .logo { margin-bottom: 0.5rem; }
+.overlay.thank-you .celebration { font-size: 2rem; }
+.overlay.thank-you .confirmation { font-family: 'Fraunces', serif; font-size: 1.75rem; text-align: center; }
+.overlay.thank-you .survey-title { font-family: 'Fraunces', serif; font-size: 1.25rem; text-align: center; margin-bottom: 1rem; }
+.overlay.thank-you .survey-container { width: 100%; height: 80vh; margin-bottom: 1rem; overflow: hidden; }
+.overlay.thank-you .survey-container iframe { width: 100%; height: 100%; border: none; }
+.overlay.thank-you .back-link { text-decoration: none; margin-bottom: 1rem; }
+.overlay.thank-you .back-link:hover { text-decoration: underline; }
