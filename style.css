@@ -1,5 +1,5 @@
 /*────────────────────────────────────────────────────────────
-  style.css (with Validation Hover State)
+  style.css (with Validation Hover State + Scroll Fix)
 ────────────────────────────────────────────────────────────*/
 
 /* 1) IMPORT FONTS */
@@ -15,7 +15,8 @@ body {
   color: #1A0F5A;
   background: url('https://lh3.googleusercontent.com/d/1Sx4YjCZ4ZzMeqWkMfKoCIJS0rwU_PYmz') center/cover no-repeat;
   position: relative;
-  overflow: hidden;
+  overflow: auto; /* enable page scroll */
+  -webkit-overflow-scrolling: touch;
 }
 
 /* 3) OVERLAY CONTAINER */
@@ -34,11 +35,11 @@ body {
 /* 4) COMMON ELEMENTS */
 .logo { display: block; margin: 0 auto 1rem; width: 280px; height: auto; }
 .visually-hidden {
-  position: absolute!important;
+  position: absolute !important;
   clip: rect(1px,1px,1px,1px);
-  width:1px; height:1px;
-  margin:-1px; overflow:hidden;
-  border:0;
+  width: 1px; height: 1px;
+  margin: -1px; overflow: hidden;
+  border: 0;
 }
 .button {
   display: inline-block;
@@ -66,26 +67,112 @@ body {
 }
 
 .response { margin-top: 0.5rem; font-size: 0.875rem; color: #e74c3c; font-family: 'Yeseva One', serif; }
-.honeypot, .mc-logo { display: none!important; }
+.honeypot, .mc-logo { display: none !important; }
 
 /* 5) LANDING PAGE */
-.overlay:not(.thank-you) h2 { font-family: 'Fraunces', serif; font-size: 1.75rem; margin-bottom: 1.5rem; }
-.overlay:not(.thank-you) .usps { list-style: none; display: grid; gap: 0.75rem; margin-bottom: 2rem; }
-.overlay:not(.thank-you) .usps li { font-family: 'League Spartan', sans-serif; font-size: 1.2rem; }
-#mc_embed_shell { max-width: 320px; margin: 0 auto; }
-#mc_embed_signup form { display: flex; flex-direction: column; gap: 0.25rem; }
-#mc_embed_signup_scroll { display: flex; flex-direction: column; gap: 0.25rem; }
-.overlay:not(.thank-you) input.email { padding: 0.75rem; font-size: 1rem; border: 2px solid #1A0F5A; border-radius: 0.5rem; font-family: 'League Spartan', sans-serif; text-align: center; }
-.overlay:not(.thank-you) .button { width: auto; max-width: 240px; margin: 0.5rem auto 0; }
-.footnote { margin-top: 1rem; font-size: 0.875rem; opacity: 0.8; }
+.overlay:not(.thank-you) h2 {
+  font-family: 'Fraunces', serif;
+  font-size: 1.75rem;
+  margin-bottom: 1.5rem;
+}
+.overlay:not(.thank-you) .usps {
+  list-style: none;
+  display: grid;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+.overlay:not(.thank-you) .usps li {
+  font-family: 'League Spartan', sans-serif;
+  font-size: 1.2rem;
+}
+#mc_embed_shell {
+  max-width: 320px;
+  margin: 0 auto;
+}
+#mc_embed_signup form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+#mc_embed_signup_scroll {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+.overlay:not(.thank-you) input.email {
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: 2px solid #1A0F5A;
+  border-radius: 0.5rem;
+  font-family: 'League Spartan', sans-serif;
+  text-align: center;
+}
+.overlay:not(.thank-you) .button {
+  width: auto;
+  max-width: 240px;
+  margin: 0.5rem auto 0;
+}
+.footnote {
+  margin-top: 1rem;
+  font-size: 0.875rem;
+  opacity: 0.8;
+}
 
 /* 6) THANK-YOU PAGE */
-.overlay.thank-you { display: flex; flex-direction: column; align-items: center; gap: 1rem; padding: 1rem; max-height: 100vh; overflow-y: auto; }
-.overlay.thank-you .logo { margin-bottom: 0.5rem; }
-.overlay.thank-you .celebration { font-size: 2rem; }
-.overlay.thank-you .confirmation { font-family: 'Fraunces', serif; font-size: 1.75rem; text-align: center; }
-.overlay.thank-you .survey-title { font-family: 'Fraunces', serif; font-size: 1.25rem; text-align: center; margin-bottom: 1rem; }
-.overlay.thank-you .survey-container { width: 100%; height: 80vh; margin-bottom: 1rem; overflow: hidden; }
-.overlay.thank-you .survey-container iframe { width: 100%; height: 100%; border: none; }
-.overlay.thank-you .back-link { text-decoration: none; margin-bottom: 1rem; }
-.overlay.thank-you .back-link:hover { text-decoration: underline; }
+.overlay.thank-you {
+  /* make flow with document so top stays visible */
+  position: relative;
+  top: auto;
+  left: auto;
+  transform: none;
+  margin: 2rem auto;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+
+.overlay.thank-you .logo {
+  margin-bottom: 0.5rem;
+}
+
+.overlay.thank-you .celebration {
+  font-size: 2rem;
+}
+
+.overlay.thank-you .confirmation {
+  font-family: 'Fraunces', serif;
+  font-size: 1.75rem;
+  text-align: center;
+}
+
+.overlay.thank-you .survey-title {
+  font-family: 'Fraunces', serif;
+  font-size: 1.25rem;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.overlay.thank-you .survey-container {
+  width: 100%;
+  height: auto; /* auto lets iframe define height */
+  overflow: visible; /* outer container no scroll */
+}
+
+.overlay.thank-you .survey-container iframe {
+  width: 100%;
+  height: 80vh; /* iframe handles scroll */
+  border: none;
+}
+
+.overlay.thank-you .back-link {
+  text-decoration: none;
+  margin-bottom: 1rem;
+}
+
+.overlay.thank-you .back-link:hover {
+  text-decoration: underline;
+}
