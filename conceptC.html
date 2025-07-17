@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Easies Redirect – Concept C</title>
+
+  <!-- 1️⃣  Performance pre‑connects -->
+  <link rel="preconnect" href="https://connect.facebook.net">
+  <link rel="dns-prefetch" href="https://www.google-analytics.com">
+
+  <!-- 2️⃣  Meta Pixel -->
+  <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)
+      f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);
+      t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)
+    }(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1232514111737028');
+    fbq('track', 'PageView', {variant: 'ConceptC'});
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1232514111737028&ev=PageView&noscript=1"/></noscript>
+
+  <!-- 3️⃣  Google Analytics (GA4) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2BKBW7G8DP"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-2BKBW7G8DP', {page_path: '/redirect/conceptC'});
+  </script>
+</head>
+<body>
+
+<script>
+  // 4️⃣  Build destination URL (Youform) + keep query params
+  const youformBase = "https://app.youform.com/forms/ig0z19bx";
+  const qs   = window.location.search;
+  const dest = youformBase + (youformBase.includes('?') ? '&' : '?') + qs.slice(1);
+
+  // 5️⃣  Fire pixel, wait 400 ms, then redirect
+  setTimeout(() => { window.location.replace(dest); }, 400);
+</script>
+
+</body>
+</html>
