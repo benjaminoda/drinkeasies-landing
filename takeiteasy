@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Easies — Take It Easy</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Easies: 2.5 % ABV hard seltzer that lets you loosen up tonight without losing tomorrow.">
+  <link rel="icon" href="/favicon.ico">
+
+  <!-- Performance & analytics -->
+  <link rel="preconnect" href="https://connect.facebook.net">
+  <link rel="dns-prefetch" href="https://www.google-analytics.com">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2BKBW7G8DP"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-2BKBW7G8DP');
+  </script>
+  <script>
+    /* Meta Pixel */
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+      n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+      (window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init','1232514111737028');
+    fbq('track','PageView');
+  </script>
+
+  <style>
+    :root{--pink:#ff3e7f;--blue:#3e9fff;--bg:#fafaf9;--r:14px;
+          font-family:Inter,Helvetica,Arial,sans-serif;}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    body{display:flex;flex-direction:column;min-height:100vh;background:var(--bg);color:#222}
+    header{padding:56px 24px;text-align:center}
+    h1{font-size:2.25rem;margin-bottom:8px}
+    h2{font-size:1rem;color:#555}
+    .cta{display:inline-block;margin:32px auto 0;background:var(--pink);color:#fff;
+         padding:14px 32px;border-radius:var(--r);font-weight:600;text-decoration:none}
+    .links{margin:48px auto;width:90%;max-width:420px;display:flex;flex-direction:column;gap:14px}
+    .links a{padding:14px;text-align:center;border:2px solid #ddd;border-radius:var(--r);
+             background:#fff;font-weight:500;text-decoration:none;color:#222;transition:.2s}
+    .links a:hover{border-color:var(--pink);transform:translateY(-2px)}
+    footer{margin-top:auto;padding:24px;text-align:center;font-size:.75rem;color:#666}
+    /* age-gate */
+    #gate{position:fixed;inset:0;background:#fff;display:flex;flex-direction:column;
+          align-items:center;justify-content:center;z-index:9999}
+    #gate button{margin-top:20px;background:var(--blue);color:#fff;padding:12px 28px;
+                 border:none;border-radius:var(--r);cursor:pointer;font-size:1rem}
+  </style>
+</head>
+<body>
+  <!-- age gate -->
+  <div id="gate">
+    <h2>Are you 21 or older?</h2>
+    <button id="enter">Yes – take me in</button>
+    <p style="font-size:.8rem;margin-top:6px">Please drink responsibly.</p>
+  </div>
+
+  <header>
+    <img src="/assets/easies-logo.svg" alt="Easies logo" style="width:120px;margin-bottom:28px">
+    <h1>Take It Easy</h1>
+    <h2>2.5 % ABV &nbsp;•&nbsp; 95 cal &nbsp;•&nbsp; Real Fruit</h2>
+    <a class="cta" href="REBATE_LINK">Get $2 Back</a>
+  </header>
+
+  <main class="links">
+    <a href="STORE_LOCATOR_URL" target="_blank">Find Easies Near You</a>
+    <a href="https://instagram.com/drinkeasies" target="_blank">Follow on Instagram</a>
+    <a href="mailto:hello@drinkeasies.com" target="_blank">Contact Us</a>
+  </main>
+
+  <footer>© 2025 Easies • <a href="/privacy.html">Privacy</a> • <a href="/terms.html">Terms</a></footer>
+
+  <script>
+    document.getElementById('enter').onclick = () => {
+      document.getElementById('gate').remove();
+      fbq('track','Lead');               // optional conversion
+    };
+  </script>
+</body>
+</html>
